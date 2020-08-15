@@ -1,0 +1,28 @@
+
+<div class="row">
+    <div class="col-md-4">
+        <form action="/send-sms" method="POST" class="card card-body">
+            <div class="form-group">
+                <input type="tel" name="phone" class="form-control" placeholder="+123456789" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="text" name="message" class="form-control" placeholder="Write your message" autofocus>
+            </div>
+        <button class="btn btn-primary btn-block">Send</button>
+        </form>
+    </div>
+    <div class="col-md-8">
+            {{#if messages}}
+                {{#each messages}}
+                    <div class="card card-body">
+                        <p>{{Body}}</p>
+                        {{!-- hideNumber funcion para ocultar numero --}}
+                        <span>{{ To}}</span>
+                    </div>
+                {{/each}}
+            {{else}} 
+                <p>No messages yet</p>
+            {{/if}}
+    </div>
+</div>
+
