@@ -11,15 +11,24 @@
         <button class="btn btn-primary btn-block">Send</button>
         </form>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-8" >
             {{#if messages}}
-                {{#each messages}}
-                    <div class="card card-body">
-                        <p>{{Body}}</p>
-                        {{!-- hideNumber funcion para ocultar numero --}}
-                        <span>{{ To}}</span>
-                    </div>
-                {{/each}}
+                <ul class="list-group" style="height: 70vh; overflow-y:auto;" id="messages">
+                    {{#each messages}}
+                        <li class="list-group-item list-group-item-info list-group-item-action" >
+                            <div class="row">
+                            <div class="col-md-6"><span>Para: {{ To}}</span></div>
+                        
+
+                            <div class="col-md-6"><span>{{timeago createdAt}}</span></div>
+                            </div>
+                            <p>{{Body}}</p>
+                            {{!-- hideNumber funcion para ocultar numero --}}
+                            <span>{{_id}}</span>
+                            <span>{{ From}}</span>
+                        </li>
+                    {{/each}}
+                </ul>
             {{else}} 
                 <p>No messages yet</p>
             {{/if}}
